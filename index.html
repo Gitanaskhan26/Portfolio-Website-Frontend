@@ -1167,28 +1167,74 @@ Let’s collaborate and bring ideas to life!</p>
           </figure>
         </section>
 
-        <section class="contact-form">
+        <!-- Your existing contact form -->
+<section class="contact-form">
 
-          <h3 class="h3 form-title">Contact Form</h3>
+  <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="#" class="form" data-form>
+  <form action="#" class="form" data-form>
 
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+    <div class="input-wrapper">
+      <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+      <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+    </div>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
+    <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+    <button class="form-btn" type="submit" disabled data-form-btn>
+      <ion-icon name="paper-plane"></ion-icon>
+      <span>Send Message</span>
+    </button>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+  </form>
 
-          </form>
+</section>
 
-        </section>
+<script>
+  const form = document.querySelector("[data-form]");
+  const inputs = document.querySelectorAll("[data-form-input]");
+  const submitBtn = document.querySelector("[data-form-btn]");
+
+  // Enable submit button if all fields are filled
+  inputs.forEach(input => {
+    input.addEventListener("input", () => {
+      const allFilled = Array.from(inputs).every(input => input.value.trim() !== "");
+      submitBtn.disabled = !allFilled;
+    });
+  });
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const name = form.fullname.value;
+    const email = form.email.value;
+    const message = form.message.value;
+
+    try {
+      const response = await fetch("https://portfolio-website-backend-7ngk.onrender.com/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("✅ Message sent successfully!");
+        form.reset();
+        submitBtn.disabled = true;
+      } else {
+        alert("❌ Failed to send message: " + data.error);
+      }
+    } catch (err) {
+      console.error("Error sending message:", err);
+      alert("❌ An error occurred while sending the message.");
+    }
+  });
+</script>
+
 
       </article>
 
