@@ -2,151 +2,168 @@
 <html lang="en">
 
 <head>
+  <!-- Basic HTML5 meta tags for proper document structure -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Portfolio</title>
-
   
-  <!--
-    - favicon
-  -->
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore Anas Khalid's portfolio—where UI/UX design meets full-stack development. Discover projects blending computer science, finance, and data-driven innovation from a developer passionate about India's financial future." />
+  <meta name="keywords" content="Anas Khalid, full-stack developer, computer science, quantitative finance, portfolio, web development, UI/UX design, India tech" />
+  <meta name="author" content="Anas Khalid" />
+  
+  <!-- Open Graph Meta Tags for Social Media Sharing -->
+  <meta property="og:title" content="Anas Khalid | Full-Stack Developer & Quant Enthusiast" />
+  <meta property="og:description" content="Discover the work and passion of Anas Khalid—a developer and finance strategist bridging tech and markets." />
+  <meta property="og:url" content="https://portfolio-website-frontend-pi.vercel.app/" />
+  <meta property="og:type" content="website" />
+  
+  <title>Personal Portfolio - Anas Khalid</title>
+
+  <!-- Website Favicon - Browser Tab Icon -->
   <link rel="shortcut icon" href="Assests/logo.ico" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
+  <!-- Main CSS Stylesheet - Contains all styling for the portfolio -->
   <link rel="stylesheet" href="style.css">
 
-  <!--
-    - google font link
-  -->
+  <!-- Google Fonts Integration - Poppins Font Family -->
+  <!-- Preconnect to Google Fonts for faster loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Import Poppins font with multiple weights (300, 400, 500, 600) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
+  <!-- 
+    MAIN CONTAINER - Contains the entire portfolio layout
+    This is the primary wrapper for the sidebar and main content area
   -->
-
   <main>
 
-    <!--
-      - #SIDEBAR
+    <!-- 
+      SIDEBAR SECTION - Left panel containing personal information and contact details
+      Features: Profile image, contact info, social links, collapsible on mobile
     -->
-
     <aside class="sidebar" data-sidebar>
 
+      <!-- 
+        SIDEBAR INFO - Main profile information section
+        Contains: Avatar, name, title, and toggle button for mobile view
+      -->
       <div class="sidebar-info">
 
+        <!-- Profile Avatar Container -->
         <figure class="avatar-box">
           <img src="Assests/my-avatar.png" alt="Anas Khalid" width="80">
         </figure>
 
+        <!-- Personal Information Display -->
         <div class="info-content">
           <h1 class="name" title="Anas Khalid">Anas Khalid</h1>
-
           <p class="title">Web developer</p>
         </div>
 
+        <!-- Mobile Toggle Button - Shows/hides contact information on mobile -->
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
-
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
       </div>
 
+      <!-- 
+        EXPANDABLE CONTACT SECTION - Hidden on mobile by default
+        Contains: Contact details, location, and social media links
+      -->
       <div class="sidebar-info_more">
 
         <div class="separator"></div>
 
+        <!-- 
+          CONTACT INFORMATION LIST
+          Professional contact details with icons and clickable links
+        -->
         <ul class="contacts-list">
 
+          <!-- Email Contact -->
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Email</p>
-
               <a href="mailto:anaskhan.ssif@gmail.com" class="contact-link">anaskhan.ssif@gmail.com</a>
             </div>
-
           </li>
 
+          <!-- Phone Contact -->
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Phone</p>
-
               <a href="tel:+12133522755" class="contact-link">+91-95062-18998 </a>
             </div>
-
           </li>
 
+          <!-- Birthday Information -->
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="calendar-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Birthday</p>
-
               <time datetime="26-05-2003">May 26, 2003</time>
             </div>
-
           </li>
 
+          <!-- Location Information -->
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Location</p>
-
               <address>Lucknow, Uttar Pradesh, India</address>
             </div>
-
           </li>
 
         </ul>
 
         <div class="separator"></div>
 
+        <!-- 
+          SOCIAL MEDIA LINKS
+          Professional social media profiles with external links
+        -->
         <ul class="social-list">
 
+          <!-- LinkedIn Profile Link -->
           <li class="social-item">
             <a href="www.linkedin.com/in/anas-khan-a0b238205" class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-Linkedin"></ion-icon>
             </a>
           </li>
 
+          <!-- Twitter Profile Link -->
           <li class="social-item">
             <a href="#" class="social-link">
               <ion-icon name="logo-Twitter"></ion-icon>
             </a>
           </li>
 
+          <!-- Instagram Profile Link -->
           <li class="social-item">
             <a href="https://www.instagram.com/__.anaskhan26.__/#" class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
 
+          <!-- GitHub Profile Link -->
           <li class="social-item">
             <a href="https://github.com/Gitanaskhan26" class="social-link" target="_blank" rel="noopener noreferrer">
               <ion-icon name="logo-Github"></ion-icon>
@@ -159,22 +176,21 @@
 
     </aside>
 
-
-
-    <!--
-      - #main-content
+    <!-- 
+      MAIN CONTENT AREA - Right panel containing all portfolio sections
+      This div contains: Navigation, About, Resume, Portfolio, Blog, and Contact sections
     -->
-
     <div class="main-content">
 
-      <!--
-        - #NAVBAR
+      <!-- 
+        NAVIGATION BAR - Top navigation for switching between sections
+        Single-page application style navigation using JavaScript
       -->
-
       <nav class="navbar">
 
         <ul class="navbar-list">
 
+          <!-- Navigation Menu Items - Each triggers content section display -->
           <li class="navbar-item">
             <button class="navbar-link  active" data-nav-link>About</button>
           </li>
@@ -199,14 +215,12 @@
 
       </nav>
 
-
-
-
-
-      <!--
-        - #ABOUT
+      <!-- 
+        ================================
+        ABOUT SECTION - Default active section
+        ================================
+        Contains: Personal introduction, services offered, testimonials, client logos
       -->
-
       <article class="about  active" data-page="about">
 
         <header>

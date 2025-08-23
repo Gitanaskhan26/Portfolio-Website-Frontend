@@ -1,11 +1,48 @@
+/*-----------------------------------*\
+  PERSONAL PORTFOLIO - STYLE.CSS
+  
+  Author: Anas Khalid
+  Description: Modern responsive portfolio website with dark theme
+  Version: 1.0
+  Last Updated: 2025
+  
+  FEATURES:
+  - Responsive design (Mobile-first approach)
+  - Dark theme with orange-yellow accents
+  - CSS Grid and Flexbox layouts
+  - Smooth animations and transitions
+  - Interactive components (modals, filters, forms)
+  - Cross-browser compatibility
+  
+  SECTIONS:
+  1. CSS Custom Properties (Variables)
+  2. Reset & Base Styles
+  3. Reusable Components
+  4. Sidebar Styles
+  5. Main Content Styles
+  6. About Section
+  7. Resume Section
+  8. Portfolio Section
+  9. Blog Section
+  10. Contact Section
+  11. Responsive Media Queries
+\*-----------------------------------*/
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTIES (CSS Variables)
+  
+  Centralized design tokens for consistent theming
+  across the entire website
+\*-----------------------------------*/
+
 :root {
 
-  /**
-   * colors
+  /*
+   * COLOR PALETTE
+   * Professional dark theme with warm accent colors
    */
 
-  /* gradient */
-
+  /* GRADIENT COLORS - Used for buttons, backgrounds, and accents */
   --bg-gradient-onyx: linear-gradient(
     to bottom right, 
     hsl(240, 1%, 25%) 3%, 
@@ -37,60 +74,60 @@
     hsl(35, 100%, 68%)
   );
 
-  /* solid */
+  /* SOLID COLORS - Primary color palette for text, backgrounds, and borders */
+  --jet: hsl(0, 0%, 22%);                    /* Dark gray for cards and containers */
+  --onyx: hsl(240, 1%, 17%);                 /* Darker background color */
+  --eerie-black-1: hsl(240, 2%, 13%);       /* Primary background color */
+  --eerie-black-2: hsl(240, 2%, 12%);       /* Secondary background color */
+  --smoky-black: hsl(0, 0%, 7%);            /* Darkest background color */
+  --white-1: hsl(0, 0%, 100%);              /* Pure white for text */
+  --white-2: hsl(0, 0%, 98%);               /* Off-white for subtle text */
+  --orange-yellow-crayola: hsl(45, 100%, 72%); /* Primary accent color */
+  --vegas-gold: hsl(45, 54%, 58%);          /* Secondary accent color */
+  --light-gray: hsl(0, 0%, 84%);            /* Light text color */
+  --light-gray-70: hsla(0, 0%, 84%, 0.7);   /* Semi-transparent light gray */
+  --bittersweet-shimmer: hsl(0, 43%, 51%);  /* Error/warning color */
 
-  --jet: hsl(0, 0%, 22%);
-  --onyx: hsl(240, 1%, 17%);
-  --eerie-black-1: hsl(240, 2%, 13%);
-  --eerie-black-2: hsl(240, 2%, 12%);
-  --smoky-black: hsl(0, 0%, 7%);
-  --white-1: hsl(0, 0%, 100%);
-  --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
-  --light-gray: hsl(0, 0%, 84%);
-  --light-gray-70: hsla(0, 0%, 84%, 0.7);
-  --bittersweet-shimmer: hsl(0, 43%, 51%);
-
-  /**
-   * typography
+  /*
+   * TYPOGRAPHY SYSTEM
+   * Consistent font sizing and weights across the website
    */
 
-  /* font-family */
-  --ff-poppins: 'Poppins', sans-serif;
+  /* FONT FAMILY */
+  --ff-poppins: 'Poppins', sans-serif;      /* Primary font family */
 
-  /* font-size */
-  --fs-1: 24px;
-  --fs-2: 18px;
-  --fs-3: 17px;
-  --fs-4: 16px;
-  --fs-5: 15px;
-  --fs-6: 14px;
-  --fs-7: 13px;
-  --fs-8: 11px;
+  /* FONT SIZES - Responsive typography scale */
+  --fs-1: 24px;   /* Largest headings */
+  --fs-2: 18px;   /* Section headings */
+  --fs-3: 17px;   /* Sub-headings */
+  --fs-4: 16px;   /* Body text large */
+  --fs-5: 15px;   /* Body text medium */
+  --fs-6: 14px;   /* Body text small */
+  --fs-7: 13px;   /* Caption text */
+  --fs-8: 11px;   /* Smallest text */
 
-  /* font-weight */
-  --fw-300: 300;
-  --fw-400: 400;
-  --fw-500: 500;
-  --fw-600: 600;
+  /* FONT WEIGHTS */
+  --fw-300: 300;  /* Light */
+  --fw-400: 400;  /* Regular */
+  --fw-500: 500;  /* Medium */
+  --fw-600: 600;  /* Semi-bold */
 
-  /**
-   * shadow
+  /*
+   * ELEVATION SYSTEM
+   * Consistent shadow levels for depth and hierarchy
    */
-  
-  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
-  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
-  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
-  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
-  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);   /* Light shadow */
+  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);     /* Medium shadow */
+  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);     /* Heavy shadow */
+  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);     /* Subtle spread shadow */
+  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);     /* Large shadow for modals */
 
-  /**
-   * transition
+  /*
+   * ANIMATION SYSTEM
+   * Consistent timing functions for smooth interactions
    */
-
-  --transition-1: 0.25s ease;
-  --transition-2: 0.5s ease-in-out;
+  --transition-1: 0.25s ease;        /* Fast transitions for hover effects */
+  --transition-2: 0.5s ease-in-out;  /* Slower transitions for layout changes */
 
 }
 
